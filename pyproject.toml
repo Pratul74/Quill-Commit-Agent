@@ -1,0 +1,19 @@
+[project]
+name = "quill"
+version = "0.1.0"
+description = "AI-powered Git commit assistant"
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "typer>= 0.27.3",
+    "rich>=15.0.0",
+    "gitpython>=3.2.0",
+]
+
+[project.scripts]
+quill = "quill.main:app"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
