@@ -1,6 +1,7 @@
 import typer
 
 from quill.ui.console import console
+from quill.git.repository import Repository
 
 app = typer.Typer()
 
@@ -17,6 +18,15 @@ def main():
     console.print()
 
     console.print("[green]Ready![/green]")
+    repo = Repository()
+    if not repo.exists():
+        console.print("[red]✗ Not inside a Git repository[/red]")
+        raise typer.Exit(1)
+    info = repo.info()
+
+    console.print(f"[green]✓ Repository:[/green] {info.name}")
+    console.print(f"[green]✓ Branch:[/green] {info.current_branch}")
+    console.print(f"[green]✓ Root:[/green] {info.root}")
 
 
 if __name__ == "__main__":
