@@ -2,6 +2,8 @@ import typer
 
 from quill.ui.console import console
 from quill.git.repository import Repository
+from quill.ui.status import render_status
+from quill.git.status import StatusService
 
 app = typer.Typer()
 
@@ -27,6 +29,10 @@ def main():
     console.print(f"[green]✓ Repository:[/green] {info.name}")
     console.print(f"[green]✓ Branch:[/green] {info.current_branch}")
     console.print(f"[green]✓ Root:[/green] {info.root}")
+
+    status = StatusService(repo).get_status()
+    console.print()
+    render_status(status)
 
 
 if __name__ == "__main__":
