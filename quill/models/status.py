@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from pathlib import Path
+from quill.models.change import ChangedFile
 
 @dataclass(frozen=True)
 class GitStatus:
-    staged: list[Path]
-    modified: list[Path]
-    untracked: list[Path]
-    deleted: list[Path]
-    renamed: list[Path]   
+    staged: list[ChangedFile]
+    modified: list[ChangedFile]
+    untracked: list[ChangedFile]
+    deleted: list[ChangedFile]
+    renamed: list[ChangedFile]
