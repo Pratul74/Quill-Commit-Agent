@@ -1,8 +1,6 @@
 from rich.console import Console
 from rich.table import Table
-from quill.git.status import GitStatus
-
-
+from quill.git.services.status import GitStatus
 
 console = Console()
 
